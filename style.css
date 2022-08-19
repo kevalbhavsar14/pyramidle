@@ -1,0 +1,166 @@
+:root {
+    --bgcolor: rgb(25, 25, 30);
+    --fgcolor: white;
+    --correctPlaceColor: rgb(0, 150, 75);
+    --incorrectPlaceColor: rgb(200, 175, 0);
+    --notPresentColor: rgb(50, 50, 60);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* transition: all 200ms; */
+}
+
+body {
+    background-color: var(--bgcolor);
+    color: var(--fgcolor);
+    text-align: center;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-weight: 600;
+}
+
+header {
+    border-bottom: 1px solid grey;
+}
+
+header h1 {
+    margin: 5px;
+}
+
+.dark-mode-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px;
+}
+
+.dark-mode-container input[type="checkbox"] {
+    display: none;
+}
+
+.dark-mode-container label {
+    display: flex;
+    align-items: center;
+}
+
+.dark-mode-container label span {
+    margin: 5px;
+}
+
+.switch {
+    width: 68px;
+    height: 35px;
+    border-radius: 35px;
+    background-color: var(--notPresentColor);
+}
+
+.switch::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: var(--bgcolor);
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    margin: 2.5px;
+    transform: translateX(0);
+    transition: transform 100ms;
+}
+
+.switch.off::before {
+    transform: translateX(-110%);
+}
+
+main {
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+
+.answer {
+    font-size: 30px;
+    height: 1.7em;
+    width: 11em;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.row {
+    display: flex;
+}
+
+.letter {
+    font-size: 30px;
+    aspect-ratio: 1/1;
+    height: 1.6em;
+    border: 1px solid grey;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* .letter span {
+} */
+
+#end-message {
+    visibility: hidden;
+    font-size: 16px;
+}
+
+#play-again {
+    font-size: 16px;
+    padding: 5px;
+}
+
+.key-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.key {
+    border: none;
+    outline: none;
+    font: inherit;
+    color: var(--fgcolor);
+
+    height: 50px;
+    min-width: 40px;
+    background-color: rgb(174, 174, 174);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3px;
+    padding: 10px;
+    border-radius: 2px;
+    user-select: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button[code="Backspace"] {
+    width: 60px;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    33% {
+        transform: translateX(-5px);
+    }
+    66% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

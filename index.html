@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="dictionary.js"></script>
+    <script src="targets.js"></script>
+    <script type="module" src="index.js"></script>
+
+    <title>Pyramidle</title>
+</head>
+
+<body>
+    <header>
+        <h1>Pyramidle</h1>
+        <div class="dark-mode-container">
+            <input type="checkbox" name="dark-mode" id="dark-mode" checked>
+            <label for="dark-mode">
+                <span>Dark Mode</span>
+                <div class="switch"></div>
+            </label>
+        </div>
+    </header>
+    <main>
+        <div class="answers">
+            <div class="answer"><span></span></div>
+            <div class="answer"><span></span></div>
+            <div class="answer"><span></span></div>
+            <div class="answer"><span></span></div>
+            <div class="answer"><span></span></div>
+            <div class="answer"><span></span></div>
+            <div class="answer"><span></span></div>
+            <div class="answer"><span></span></div>
+            <div class="answer"><span></span></div>
+            <div class="answer"><span></span></div>
+            <div class="answer"><span></span></div>
+        </div>
+        <div class="guess-grid">
+            <div class="row" id="guess-1">
+                <div class="letter"><span></span></div>
+            </div>
+            <div class="row" id="guess-2">
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+            </div>
+            <div class="row" id="guess-3">
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+            </div>
+            <div class="row" id="guess-4">
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+            </div>
+            <div class="row" id="guess-5">
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+            </div>
+            <div class="row" id="guess-6">
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+            </div>
+            <div class="row" id="guess-7">
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+            </div>
+            <div class="row" id="guess-8">
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+            </div>
+            <div class="row" id="guess-9">
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+            </div>
+            <div class="row" id="guess-10">
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+            </div>
+            <div class="row" id="guess-11">
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+                <div class="letter"><span></span></div>
+            </div>
+        </div>
+        <div>
+            <div id="end-message">
+                <span></span>
+                <button id="play-again">Play Again</button>
+            </div>
+            <div class="keyboard">
+                <div class="key-row">
+                    <button class="key" code="KeyQ"><span>Q</span></button>
+                    <button class="key" code="KeyW"><span>W</span></button>
+                    <button class="key" code="KeyE"><span>E</span></button>
+                    <button class="key" code="KeyR"><span>R</span></button>
+                    <button class="key" code="KeyT"><span>T</span></button>
+                    <button class="key" code="KeyY"><span>Y</span></button>
+                    <button class="key" code="KeyU"><span>U</span></button>
+                    <button class="key" code="KeyI"><span>I</span></button>
+                    <button class="key" code="KeyO"><span>O</span></button>
+                    <button class="key" code="KeyP"><span>P</span></button>
+                </div>
+                <div class="key-row">
+                    <button class="key" code="KeyA"><span>A</span></button>
+                    <button class="key" code="KeyS"><span>S</span></button>
+                    <button class="key" code="KeyD"><span>D</span></button>
+                    <button class="key" code="KeyF"><span>F</span></button>
+                    <button class="key" code="KeyG"><span>G</span></button>
+                    <button class="key" code="KeyH"><span>H</span></button>
+                    <button class="key" code="KeyJ"><span>J</span></button>
+                    <button class="key" code="KeyK"><span>K</span></button>
+                    <button class="key" code="KeyL"><span>L</span></button>
+                </div>
+                <div class="key-row">
+                    <button class="key" code="Enter"><span>ENTER</span></button>
+                    <button class="key" code="KeyZ"><span>Z</span></button>
+                    <button class="key" code="KeyX"><span>X</span></button>
+                    <button class="key" code="KeyC"><span>C</span></button>
+                    <button class="key" code="KeyV"><span>V</span></button>
+                    <button class="key" code="KeyB"><span>B</span></button>
+                    <button class="key" code="KeyN"><span>N</span></button>
+                    <button class="key" code="KeyM"><span>M</span></button>
+                    <button class="key" code="Backspace"><span><i class="material-icons">backspace</i></span></button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
