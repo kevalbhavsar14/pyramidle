@@ -76,7 +76,6 @@ header h1 {
 main {
     width: 100%;
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-evenly;
     padding-top: 20px;
 }
@@ -106,9 +105,6 @@ main {
     justify-content: center;
     position: relative;
 }
-
-/* .letter span {
-} */
 
 #end-message {
     visibility: hidden;

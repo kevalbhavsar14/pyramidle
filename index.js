@@ -41,7 +41,7 @@ for (let i = 4; i <= 11; i++) {
     let eligible = targets.filter((word) => word.length == i);
     answers.push(eligible[getRandomInt(eligible.length)]);
 }
-console.log(answers);
+// console.log(answers);
 
 let won = false;
 let finished = false;
