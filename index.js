@@ -1,18 +1,24 @@
 // Wordle spinoff game Pyramidle
 // Created by Keval Bhavsar
 
+const rnd = new Srand();
+const s = Number([...location.search.matchAll(/\?((\w+)=([0-9]*))/g)]?.[0]?.[3]);
+if (!isNaN(s)) {
+    rnd.seed(s);
+}
+
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+    return rnd.intInRange(0, max - 1);
 }
 
 function replaceAtStr(str, index, replacement) {
     return str.substring(0, index) + replacement + str.substring(index + replacement.length);
 }
 
-let darkModeInput = document.getElementById("dark-mode");
+const darkModeInput = document.getElementById("dark-mode");
 darkModeInput.addEventListener("click", () => {
-    let r = document.querySelector(":root");
-    let dmSwitch = document.querySelector(".switch");
+    const r = document.querySelector(":root");
+    const dmSwitch = document.querySelector(".switch");
     if (darkModeInput.checked) {
         r.style.setProperty("--bgcolor", "rgb(25, 25, 30)");
         r.style.setProperty("--fgcolor", "white");
@@ -35,10 +41,10 @@ let guessNo = 1;
 let guessLetter = 1;
 
 let guess = "";
-let guesses = [];
-let answers = [];
+const guesses = [];
+const answers = [];
 for (let i = 4; i <= 11; i++) {
-    let eligible = targets.filter((word) => word.length == i);
+    const eligible = targets.filter((word) => word.length == i);
     answers.push(eligible[getRandomInt(eligible.length)]);
 }
 // console.log(answers);
@@ -46,20 +52,69 @@ for (let i = 4; i <= 11; i++) {
 let won = false;
 let finished = false;
 
-document.addEventListener("keydown", (event) => {
-    keydown(event.key, event.code);
+document.addEventListener("keydown", (e) => {
+    keydown(e.key, e.code);
 }, false);
 
 let keys = document.getElementsByClassName("key");
-for (let key of keys) {
-    key.addEventListener("click", () => {
-        keydown(key.children[0].textContent.toLowerCase(), key.attributes["code"].value);
+for (const key of keys) {
+    key.addEventListener("click", (e) => {
+        const keyElm = e.currentTarget;
+        keydown(keyElm.children[0].textContent.toLowerCase(), keyElm.attributes["code"].value);
+        e.target.blur();
     });
 }
 
-document.getElementById("play-again").addEventListener("click", () => {
-    window.location.reload();
+document.getElementById("play-again").addEventListener("click", (e) => {
+    window.location.replace(location.origin);
+    e.target.blur();
 });
+
+document.getElementById("share-result").addEventListener("click", () => {
+    let emojis = "";
+    for (let i = 1; i < guessNo; i++) {
+        for (let j = 1; j <= i; j++) {
+            let guessRow = document.getElementById(`guess-${i}`);
+            let letterDiv = guessRow.querySelector(`:nth-child(${j})`);
+            if (letterDiv.style.backgroundColor == "var(--correctPlaceColor)") {
+                emojis += "🟩";
+            } else if (letterDiv.style.backgroundColor == "var(--incorrectPlaceColor)") {
+                emojis += "🟨";
+            } else {
+                emojis += darkModeInput.checked ? "⬛" : "⬜";
+            }
+        }
+        emojis += "\n";
+    }
+    let message = `Pyramidle ${won ? guessNo - 1: 'X'}/11\n` + emojis + `\nGame link: ` + getLink();
+    copyToClipboard(message);
+});
+
+document.getElementById("share-link").addEventListener("click", (e) => {
+    copyToClipboard(getLink());
+    e.target.blur();
+});
+
+document.getElementById("giveup").addEventListener("click", (e) => {
+    finishGame();
+    e.target.blur();
+});
+
+function getLink() {
+    let link = location.href;
+    if (location.search == "") {
+        link += `?s=${rnd.seed()}`;
+    }
+    return link;
+}
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        alert("Copied to clipboard");
+    }, function(err) {
+        alert("Failed to copy to clipboard: " + err);
+    });
+}
 
 function keydown(keyName, keyCode) {
     if (finished) {
@@ -71,8 +126,8 @@ function keydown(keyName, keyCode) {
         }
         checkGuess(guess, guessNo, guessNo > 3 ? answers[guessNo - 4] : answers[0]);
         nextGuess();
-        let answerDivs = document.querySelectorAll(`.answer span`);
-        answerDivs[guessNo - 2].textContent = guessNo > 4 ? answers[guessNo - 5].toUpperCase() : '';
+        // let answerDivs = document.querySelectorAll(".answer span");
+        // answerDivs[guessNo - 2].textContent = guessNo > 4 ? answers[guessNo - 5].toUpperCase() : '';
         if (finished) return;
         resetKeyboard();
         for (let i = 0; i < guessNo - 1; i++) {
@@ -182,17 +237,21 @@ function nextGuess() {
 function finishGame() {
     finished = true;
     let endMessage = document.getElementById("end-message");
-    endMessage.style.visibility = "visible";
+    endMessage.style.display = "block";
     if (won) {
         endMessage.children[0].textContent = "Pro bhai!";
     }
     else {
-        endMessage.children[0].textContent = `Noob bhai.`;
+        endMessage.children[0].textContent = "Noob bhai.";
     }
-    for (let i = guessNo; i <= 11; i++) {
-        let answerDivs = document.querySelectorAll(`.answer span`);
-        answerDivs[i - 1].textContent = i > 4 ? answers[i - 4].toUpperCase() : '';
+    let answerDivs = document.querySelectorAll(".answer span");
+    for (let i = 0; i < 8; i++) {
+        answerDivs[i].textContent = answers[i].toUpperCase();
     }
+    let answersDiv = document.querySelector(".answers");
+    answersDiv.style.display = "flex";
+    let spacer = document.querySelector(".spacer");
+    spacer.style.display = "block";
 }
 
 function resetKeyboard() {

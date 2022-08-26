@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <script src="jsrand.min.js"></script>
     <script src="dictionary.js"></script>
     <script src="targets.js"></script>
     <script type="module" src="index.js"></script>
@@ -27,113 +27,114 @@
         </div>
     </header>
     <main>
-        <div class="answers">
-            <div class="answer"><span></span></div>
-            <div class="answer"><span></span></div>
-            <div class="answer"><span></span></div>
-            <div class="answer"><span></span></div>
-            <div class="answer"><span></span></div>
-            <div class="answer"><span></span></div>
-            <div class="answer"><span></span></div>
-            <div class="answer"><span></span></div>
-            <div class="answer"><span></span></div>
-            <div class="answer"><span></span></div>
-            <div class="answer"><span></span></div>
-        </div>
-        <div class="guess-grid">
-            <div class="row" id="guess-1">
-                <div class="letter"><span></span></div>
+        <div class="words">
+            <div class="answers">
+                <div class="answer"><span></span></div>
+                <div class="answer"><span></span></div>
+                <div class="answer"><span></span></div>
+                <div class="answer"><span></span></div>
+                <div class="answer"><span></span></div>
+                <div class="answer"><span></span></div>
+                <div class="answer"><span></span></div>
+                <div class="answer"><span></span></div>
             </div>
-            <div class="row" id="guess-2">
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
+            <div class="guess-grid">
+                <div class="row" id="guess-1">
+                    <div class="letter"><span></span></div>
+                </div>
+                <div class="row" id="guess-2">
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                </div>
+                <div class="row" id="guess-3">
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                </div>
+                <div class="row" id="guess-4">
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                </div>
+                <div class="row" id="guess-5">
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                </div>
+                <div class="row" id="guess-6">
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                </div>
+                <div class="row" id="guess-7">
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                </div>
+                <div class="row" id="guess-8">
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                </div>
+                <div class="row" id="guess-9">
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                </div>
+                <div class="row" id="guess-10">
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                </div>
+                <div class="row" id="guess-11">
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                    <div class="letter"><span></span></div>
+                </div>
             </div>
-            <div class="row" id="guess-3">
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-            </div>
-            <div class="row" id="guess-4">
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-            </div>
-            <div class="row" id="guess-5">
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-            </div>
-            <div class="row" id="guess-6">
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-            </div>
-            <div class="row" id="guess-7">
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-            </div>
-            <div class="row" id="guess-8">
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-            </div>
-            <div class="row" id="guess-9">
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-            </div>
-            <div class="row" id="guess-10">
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-            </div>
-            <div class="row" id="guess-11">
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-                <div class="letter"><span></span></div>
-            </div>
+            <div class="spacer"></div>
         </div>
         <div>
             <div id="end-message">
                 <span></span>
-                <button id="play-again">Play Again</button>
+                <button id="play-again" class="button">Play Again</button>
+                <button id="share-result" class="button">Share Result</button>
             </div>
             <div class="keyboard">
                 <div class="key-row">
@@ -171,6 +172,8 @@
                     <button class="key" code="Backspace"><span><i class="material-icons">backspace</i></span></button>
                 </div>
             </div>
+            <button id="share-link" class="button">Share a link to this game</button>
+            <button id="giveup" class="button">Give Up</button>
         </div>
     </main>
 </body>
