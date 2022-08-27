@@ -66,7 +66,7 @@ for (const key of keys) {
 }
 
 document.getElementById("play-again").addEventListener("click", (e) => {
-    window.location.replace(location.origin);
+    window.location.replace(location.href);
     e.target.blur();
 });
 
@@ -260,10 +260,10 @@ function finishGame() {
     let endMessage = document.getElementById("end-message");
     endMessage.style.display = "block";
     if (won) {
-        endMessage.children[0].textContent = "Pro bhai!";
+        endMessage.children[0].textContent = "Awesome!";
     }
     else {
-        endMessage.children[0].textContent = "Noob bhai.";
+        endMessage.children[0].textContent = "Sadge.";
     }
     let answerDivs = document.querySelectorAll(".answer span");
     for (let i = 0; i < 8; i++) {
