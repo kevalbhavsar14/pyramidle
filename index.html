@@ -18,15 +18,20 @@
 <body>
     <header>
         <h1>Pyramidle</h1>
-        <div class="dark-mode-container">
+        <div class="menu-item">
+        <label>
+            <span title="How to play" id="help" class="material-icons">help_outline</span>
+        </label>
+        </div>
+        <div class="menu-item">
             <input type="checkbox" name="dark-mode" id="dark-mode" checked>
-            <label for="dark-mode">
-                <span>Dark Mode</span>
-                <div class="switch"></div>
+            <label for="dark-mode" title="Dark mode">
+                <div class="switch material-icons"></div>
             </label>
         </div>
     </header>
     <main>
+        <div id="notif"></div>
         <div class="words">
             <div class="answers">
                 <div class="answer"><span></span></div>
@@ -172,10 +177,30 @@
                     <button class="key" code="Backspace"><span><i class="material-icons">backspace</i></span></button>
                 </div>
             </div>
-            <button id="share-link" class="button">Share a link to this game</button>
-            <button id="giveup" class="button">Give Up</button>
+            <button id="share-link" class="button" title="Copy link to clipboard">Share a link to this game</button>
+            <button id="giveup" class="button" title="End game and reveal solutions">Give Up</button>
         </div>
     </main>
+    <section id="how-to-play">
+        <div class="container">
+            <h2>How to Play</h2>
+            <hr>
+            <p>Guess any word from length 4 to 11 to win.</p>
+            <p>Guesses 1 to 3 show clues for word of length 4, if 4th guess is incorrect the clues of already guessed words will update for the word of subsequent length</p>
+            <hr>
+            <h3>Example</h3>
+            <img src="images/clues.png" alt="Clues" height="40">
+            <p>The letter <strong style="background: var(--correctPlaceCOlor);">R</strong> is in the next word and in the correct spot.</p>
+            <p>The letters <strong>C and A</strong> are in the next word but in the wrong spot.</p>
+            <p>The letters <strong>E and M</strong> are not in the next word.</p>
+            <div style="display: flex; gap: 30px;">
+                <img src="images/3words.png" alt="3 Guesess" height="120"> 
+                <img src="images/4words.png" alt="4 Guesses" height="156">
+            </div>
+            <p>Fisrt 3 guesses show clues for the word with length 4.</p>
+            <p>After guessing the wrong word all the clues are changed to match the next word.</p>
+        </div>
+    </section>
 </body>
 
 </html>

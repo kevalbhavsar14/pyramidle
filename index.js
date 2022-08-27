@@ -100,6 +100,27 @@ document.getElementById("giveup").addEventListener("click", (e) => {
     e.target.blur();
 });
 
+document.getElementById("help").addEventListener("click", () => {
+    const howToPlay = document.getElementById("how-to-play");
+    howToPlay.style.visibility = "visible";
+});
+
+document.getElementById("how-to-play").addEventListener("click", () => {
+    const howToPlay = document.getElementById("how-to-play");
+    howToPlay.style.visibility = "hidden";
+})
+
+function notify(message) {
+    let notif = document.getElementById("notif");
+    notif.innerText = message;
+    notif.style.opacity = "1";
+    notif.style.transform = "translate(-50%, 100%)"
+    sleep(2000).then(() => {
+        notif.style.opacity = "0";      
+        notif.style.transform = "translate(-50%, 0)"
+    });
+}
+
 function getLink() {
     let link = location.href;
     if (location.search == "") {
@@ -110,9 +131,9 @@ function getLink() {
 
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(function() {
-        alert("Copied to clipboard");
+        notify("Copied to clipboard");
     }, function(err) {
-        alert("Failed to copy to clipboard: " + err);
+        notify("Failed to copy to clipboard: " + err);
     });
 }
 
