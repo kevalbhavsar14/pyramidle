@@ -19,6 +19,7 @@ body {
     text-align: center;
     font-family: 'Arial Narrow Bold', sans-serif;
     font-weight: 600;
+    overflow-x: hidden;
 }
 
 header {
@@ -189,7 +190,6 @@ main {
     align-items: center;
     justify-content: center;
     margin: 3px;
-    padding: 10px;
     border-radius: 2px;
     user-select: none;
     cursor: pointer;
