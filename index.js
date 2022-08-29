@@ -1,6 +1,16 @@
 // Wordle spinoff game Pyramidle
 // Created by Keval Bhavsar
 
+let dictionary = [];
+let targets = [];
+
+await fetch("dictionary.json")
+    .then(response => response.json())
+    .then(json => dictionary = json);
+await fetch("targets.json")
+    .then(response => response.json())
+    .then(json => targets = json);
+
 const rnd = new Srand();
 const s = Number([...location.search.matchAll(/\?((\w+)=([0-9]*))/g)]?.[0]?.[3]);
 if (!isNaN(s)) {
